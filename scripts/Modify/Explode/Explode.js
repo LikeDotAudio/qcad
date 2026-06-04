@@ -98,7 +98,7 @@ Explode.explodeSelection = function(di, toolTitle) {
         var id = ids[i];
         var entity = document.queryEntity(id);
         if (isNull(entity)) {
-            debugger;
+            ////debugger;
         }
 
         //var newShapes = [];

@@ -94,7 +94,7 @@ InfoCentroids.prototype.getRunningSumKBK = function (list) {
     // Fail without a list:
     if (isNull(list) || list.length === 0) return Number.NaN;    // Failed as list
 
-//debugger;
+////debugger;
     // Naively for 1 or 2 values:
     iMax = list.length;
 
@@ -143,7 +143,7 @@ InfoCentroids.prototype.getRunningSumKBK = function (list) {
  */
 InfoCentroids.prototype.mergeBoxWith = function(item) {
 
-//debugger;
+////debugger;
     if (isNull(this.boxSize)) {
         // The first item to be added should be an RBox
         if (isOfType(item, RBox)) {
@@ -184,7 +184,7 @@ InfoCentroids.prototype.addTextLabel = function(doc, op, pos, offset, text) {
     // Retrieve info color:    Default =pale green
     infoColor = RSettings.getColor("GraphicsViewColors/MeasurementToolsColor", new RColor(155,220,112));
 
-//debugger;
+////debugger;
     // Create new text data object:
     textData = new RTextData();
     textData.setAlignmentPoint(new RVector(pos.x + offset.x, pos.y + offset.y));
@@ -230,7 +230,7 @@ InfoCentroids.prototype.addCentroidMarker = function(doc, op, dataC, radius, pre
     // Retrieve info color::    Default =pale green
     infoColor = RSettings.getColor("GraphicsViewColors/MeasurementToolsColor", new RColor(155,220,112));
 
-//debugger;
+////debugger;
     quaterC = 0.4142135623730950488;    // bulge = sqrt(2)-1
     bulges = [1.0, 0.0, quaterC, 0.0, -quaterC,  0.0, -1.0];
     // # Known Issue # Circle sector is not rendered correct by QCAD with Width = 2R
@@ -322,7 +322,7 @@ InfoCentroids.prototype.addCentroidMarker = function(doc, op, dataC, radius, pre
 InfoCentroids.prototype.getMarkerSize = function() {
     var markerSize;
 
-//debugger;
+////debugger;
     // If any, by box size or default:
     if (isOfType(this.boxSize, RBox)) {
         // Proportional to shape(s):

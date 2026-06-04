@@ -52,7 +52,7 @@ InfoCentroidsListener.includeBasePath = includeBasePath;
 InfoCentroidsListener.prototype.beginEvent = function() {
    InfoCentroids.prototype.beginEvent.call(this);
 
-//debugger;
+////debugger;
     // Try to retrieve a stored adapter reference:
     var appWin = EAction.getMainWindow();
     var adapter = appWin.property("InfoCentroidsListenerAdapter");

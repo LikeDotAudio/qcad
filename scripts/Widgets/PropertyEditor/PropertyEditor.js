@@ -358,7 +358,7 @@ PropertyEditorImpl.prototype.updateGui = function(onlyChanges) {
 //    }
 
 //    if (isNull(this.entityTypeFilter)) {
-//        debugger;
+//        //debugger;
 //    }
 
     if (!isNull(this.onlyChangesOverride)) {
@@ -577,7 +577,7 @@ PropertyEditorImpl.prototype.updateGui = function(onlyChanges) {
 //                qDebug("enumChoices: ", ec[0]);
 //                qDebug("enumChoices: ", ec[1]);
 //                qDebug("enumChoices: ", ec[2]);
-//                debugger;
+//                //debugger;
 //            }
 
             // ignore entity type:
@@ -749,7 +749,7 @@ PropertyEditorImpl.prototype.updateGui = function(onlyChanges) {
                             gridLayout.addWidget(controls[1], row,2);
                         }
                         else {
-                            debugger;
+                            ////debugger;
                         }
 
                         // 'remove custom property' button:
@@ -1548,7 +1548,7 @@ PropertyEditorImpl.prototype.initChoiceControls = function(
         }
         else {
             // custom something, cannot handle this:
-            debugger;
+            ////debugger;
         }
     }
     else {

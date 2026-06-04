@@ -212,7 +212,7 @@ DrawFromCSV.prototype.DrawFromCSVFile = function(di, fileName) {
     EAction.handleUserInfo(msg);    // Push info to history (Win)
     qDebug(msg);    // Push info to stdout
 
-//debugger;
+////debugger;
     // Stream input from file
     // - - - - - - - - - - - -
     // Process all definition lines:
@@ -337,7 +337,7 @@ DrawFromCSV.prototype.DrawFromCSVFile = function(di, fileName) {
         fields = textLine.split(lstSep);
         fieldsCount = fields.length;
 
-//debugger;
+////debugger;
         // Process definition by nominator key in uppercase:
         switch (fields[0].toUpperCase()) {    // On nominator key in upper case
         case "NEWORIGIN":
@@ -1352,7 +1352,7 @@ DrawFromCSV.prototype.DrawFromCSVFile = function(di, fileName) {
 
     } while(!ts.atEnd());    // Loop when the text stream is not ended
 
-//debugger;
+////debugger;
     // Synchronize RelativeZero:
     di.setRelativeZero(this.relativePos.operator_add(offsetRv));
 
@@ -1664,7 +1664,7 @@ DrawFromCSV.prototype.validateAttributes = function(fields, textLine) {
     // Add 1 for counter limit:
     pairs++;
 
-//debugger;
+////debugger;
     for (i=1; i<pairs; i++) {    // Cycle through up to 5 attributes pairs
         // Split the key/value pair:
         keyValue = fields[i].split(":");
@@ -1779,7 +1779,7 @@ DrawFromCSV.prototype.newOrUpdateLayer = function(fields, textLine) {
     var defaultColor, defaultType, defaultWeight;      // Default attributes
     var msg = "";                                      // Intermediate message strings
 
-//debugger;
+////debugger;
     // Adapt layer naming to proper layer hierarchy separator:
     fields[1] = fields[1].replace(/\//g, this.layerSep);
 
@@ -2067,7 +2067,7 @@ DrawFromCSV.prototype.roundPolyline = function(polylineShape, radius) {
     var maxRadius;
     var isValidated = true;
 
-//debugger;
+////debugger;
     // Do nothing when NOT a polyline shape or without the required proxy:
     if (!isPolylineShape(polylineShape) || !RPolyline.hasProxy()) {
         return polylineShape;

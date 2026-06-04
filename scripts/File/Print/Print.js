@@ -1557,7 +1557,7 @@ Print.getBackgroundColor = function(document) {
         return new RColor("white");
     }
     else {
-        debugger;
+        ////debugger;
         return new RColor("white");
     }
 };

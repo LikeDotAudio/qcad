@@ -34,7 +34,7 @@ Apollonius.constructionShapes = [];
 Apollonius.getSolutions = function(shape1, shape2, shape3) {
     if (isArray(shape1) && isNull(shape2) && isNull(shape3)) {
         if (shape1.length!==3) {
-            debugger;
+            ////debugger;
             return [];
         }
         return Apollonius.getSolutions(shape1[0], shape1[1], shape1[2]);
@@ -684,7 +684,7 @@ Apollonius.compareShapes = function(shape1, shape2) {
                RMath.fuzzyCompare(shape1.radius, shape2.radius);
     }
 
-    debugger;
+    ////debugger;
     return false;
 };
 
@@ -1041,7 +1041,7 @@ Apollonius.getPowerCenter = function(c1, c2, c3) {
 //        //Apollonius.constructionShapes.push(ra2);
 //        var rips = ra1.getIntersectionPoints(ra2, false);
 //        if (rips.length===0) {
-//            debugger;
+//            //debugger;
 //        }
 //        center = c2c.getClosestPointOnShape(rips[0], false);
 //    }
@@ -1864,7 +1864,7 @@ Apollonius.getSolutionsPLC = function(point, line, circle) {
     }
 
 //    if (point.position.equalsFuzzy(new RVector(190,90))) {
-//        debugger;
+//        //debugger;
 //    }
 
 
@@ -2247,7 +2247,7 @@ Apollonius.getInverseShape = function(shape, inversionCircle) {
             var pInverse = Apollonius.getInverseShape(new RPoint(p), inversionCircle);
 
             if (!pInverse.position.isValid()) {
-                debugger;
+                ////debugger;
             }
 
             return RCircle.createFrom2Points(center, pInverse.position);
@@ -2263,7 +2263,7 @@ Apollonius.getInverseShape = function(shape, inversionCircle) {
             var radius = circle.center.x - Apollonius.getInverseShape(radiusHelperPoint, inversionCircle).position.x;
 
             if (radius<0) {
-                //debugger;
+                ////debugger;
                 radius = Math.abs(radius);
             }
 
@@ -2273,7 +2273,7 @@ Apollonius.getInverseShape = function(shape, inversionCircle) {
             var s = new RLine(inversionCircle.center, circle.center);
             ips = s.getIntersectionPoints(getPtr(circle), false);
             if (ips.length<1) {
-                debugger;
+                ////debugger;
                 return undefined;
             }
 
@@ -2281,7 +2281,7 @@ Apollonius.getInverseShape = function(shape, inversionCircle) {
 
             if (p.equalsFuzzy(inversionCircle.center)) {
                 if (ips.length<2) {
-                    debugger;
+                    ////debugger;
                     return undefined;
                 }
                 p = ips[1];
@@ -2290,7 +2290,7 @@ Apollonius.getInverseShape = function(shape, inversionCircle) {
             var pInverse = Apollonius.getInverseShape(new RPoint(p), inversionCircle);
 
             if (!pInverse.position.isValid()) {
-                debugger;
+                ////debugger;
             }
 
             return new RLine(pInverse.position, s.getAngle() + Math.PI/2, 1.0);
@@ -2308,17 +2308,17 @@ Apollonius.getInverseShape = function(shape, inversionCircle) {
             var p2Inverse = Apollonius.getInverseShape(new RPoint(p2), inversionCircle);
 
             if (!p1Inverse.position.isValid()) {
-                debugger;
+                ////debugger;
             }
             if (!p2Inverse.position.isValid()) {
-                debugger;
+                ////debugger;
             }
 
             return RCircle.createFrom2Points(p1Inverse.position, p2Inverse.position);
         }
     }
 
-    debugger;
+    ////debugger;
 };
 
 /**

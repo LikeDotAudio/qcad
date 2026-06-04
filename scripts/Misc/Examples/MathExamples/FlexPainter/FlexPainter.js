@@ -56,7 +56,7 @@ FlexPainter.includeBasePath = includeBasePath;
 FlexPainter.prototype.beginEvent = function() {
     MathExamples.prototype.beginEvent.call(this);
 
-//debugger;
+////debugger;
     // FlexPainter.init test for PROTOOLS to prevent loading the addon
     // These should be available at runtime
     // Prevent FlexPainter to run without PRO resources:
@@ -75,17 +75,17 @@ FlexPainter.prototype.beginEvent = function() {
     this.units = document.getUnit();
     var di = this.getDocumentInterface();
 
-//debugger;
+////debugger;
     // Terminate without document units:
     if (isNull(this.units) || !isNumber(this.units) || this.units == 0) {
         // Push warning to command history and terminate
         qDebug("NO Doc units! ; Command terminated");
         EAction.handleUserWarning("NO Doc units! FlexPainter syncs with units.");
         EAction.handleUserMessage("Nothing casted. Command terminated");
-        debugger; // ###### Catch this In the act !!!
+        ////debugger; // ###### Catch this In the act !!!
             // CAN NOT handle no units! Halt in debugger mode
             // # ToDo # Revert to defaults
-        debugger; // ######
+        ////debugger; // ######
         this.terminate();    // Or terminate altogether
         return;
     } // -> Continue with document units
@@ -118,7 +118,7 @@ FlexPainter.prototype.beginEvent = function() {
     // Cronometration
     var crono = Date.now();
 
-//debugger;
+////debugger;
     // Retrieve painters specifics
     var painterLength = this.mainData[0][2];
     var painterStepSize = this.mainData[0][3];
@@ -209,7 +209,7 @@ FlexPainter.prototype.beginEvent = function() {
             if (this.isTanCloObj) this.castingType++;    // Promote type 1 > 2 || 3 > 4
             if (isCircleShape(shape)) this.castingType = 5;
 
-//debugger;
+////debugger;
             // Get entity length after possible approximateWithArcs
             this.objlength = shape.getLength();
 
@@ -258,7 +258,7 @@ FlexPainter.prototype.beginEvent = function() {
                 continue;    // Skip to next selected entity
             }
 
-//debugger;
+////debugger;
             // Dynamic scaler for continuous Closed Forms and forced to scale Open Forms
             var dynScale = 1.00;
             if (this.isTanCloObj) {    // Continuous Closed Forms: +No apexes, +n.Knots
@@ -386,7 +386,7 @@ FlexPainter.prototype.beginEvent = function() {
 
                 // Cast & morphs painters over Entities
                 // ------------------------------------
-//debugger;
+////debugger;
                 // Optionally cast begin apex painter On Open Forms
                 if (this.doBeginApex) {    // Required and existing
                     if (!this.isTanCloObj) {    // On Open Forms
@@ -624,9 +624,9 @@ FlexPainter.prototype.castPainter = function (shape, painterData) {
                 if (!this.isTanCloObj) {
                     qDebug("TooFarCaster"); //non-MSWinTesting
                     if (!this.beVerbose) EAction.handleUserWarning("TooFarCaster"); //MSWinTesting
-                    debugger; // ###### Catch this In the act !!!
+                    ////debugger; // ###### Catch this In the act !!!
                       // Faulty! Halt in debugger mode
-                    debugger; // ######
+                    ////debugger; // ######
                 }
             }
 
@@ -709,9 +709,9 @@ FlexPainter.prototype.castPainter = function (shape, painterData) {
             if (isNull(castVector)) {
                 qDebug("Casting a Null-Vector!");
                 EAction.handleUserWarning("Casting a Null-Vector!"); //MSWinTesting
-                debugger; // ###### Catch this In the act !!!
+                ////debugger; // ###### Catch this In the act !!!
                     // Faulty! Halt in debugger mode
-                debugger; // ######
+                ////debugger; // ######
             }
 
             // Push casted point to collectors
@@ -930,7 +930,7 @@ FlexPainter.prototype.showDialog = function() {
         //    restoreState(dialog) will set former painter set used
         //    PainterBox enabled-state will auto adapt by change function
     }  // End first load detection
-//debugger;
+////debugger;
 
     // Repeat Dialog until entries are flawless
     do {
@@ -1133,7 +1133,7 @@ FlexPainter.prototype.initWidgets = function(widget, postfix) {
     if (isNull(postfix)) {    // Unknown purpose, left as was
         postfix = "";
     }
-//debugger;
+////debugger;
     // HERE IN SCOPE (but static)
         // widget (parsed)
         // postfix (parsed)
@@ -1161,7 +1161,7 @@ FlexPainter.prototype.initWidgets = function(widget, postfix) {
                     widgets["PreviewPainters"].icon = new QIcon(FlexPainter.includeBasePath + "/Icons/" + currentText + ".svg");
                     // # ToDo # Only one icon set yet. currentText Hardcoded here as "CurtainRopeProto"
                     widgets["PreviewKnot"].icon = new QIcon(FlexPainter.includeBasePath + "/Icons/" + "CurtainRopeProto" + "Knot" +".svg");
-//debugger;
+////debugger;
                     // Re-initiate painter set:
                     // # Issue Fixed # FlexPainter.PainterSetInit() out of scope
                     // # Workaround # getPainterSet functions (calls PainterSetInit)

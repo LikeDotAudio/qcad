@@ -67,11 +67,11 @@ DbConnection.prototype.execQuery = function(query) {
                     .lastError().text());
             qCritical("DbConnection.js:", "execQuery(): query failed:\n", query
                     .executedQuery());
-            debugger;
+            ////debugger;
         }
     } catch (e) {
         qCritical("DbConnection.js:", "execQuery(): exception:", e);
-        debugger;
+        ////debugger;
     }
     return query;
 };
@@ -89,7 +89,7 @@ DbConnection.prototype.prepareQuery = function(sql) {
     if (!ret) {
         qCritical("DbConnection.js:", "prepareQuery(): SQL prepare failed:\n",
                 sql, "\n", query.lastError().text());
-        debugger;
+        ////debugger;
     }
     return query;
 };

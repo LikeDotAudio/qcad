@@ -197,7 +197,7 @@ DimRotated.prototype.showUiOptions = function(resume, restoreFromSettings) {
 };
 
 DimRotated.prototype.hideUiOptions = function(saveToSettings) {
-            debugger;
+            ////debugger;
     Dimension.prototype.hideUiOptions.call(this, saveToSettings);
 };
 */

@@ -162,7 +162,7 @@ DrawFmsLanes.prototype.drawRibsBasedOnLine = function(lineStartPoint, lineEndPoi
     var op = new RAddObjectsOperation();
     op.addObject(rib);
     this.getDocumentInterface().applyOperation(op);
-    // debugger;
+    // //debugger;
 
     // Todo:
     //     - check to not add centerPoint if ribs will intersect
@@ -266,7 +266,7 @@ DrawFmsLanes.prototype.pickCoordinate = function(event, preview) {
     // set next vertex:
     case DrawFmsLanes.State.SettingNextVertex:
         point = event.getModelPosition();
-        // debugger;
+        // //debugger;
 
         // number of existing vertices:
         var numberOfVertices;

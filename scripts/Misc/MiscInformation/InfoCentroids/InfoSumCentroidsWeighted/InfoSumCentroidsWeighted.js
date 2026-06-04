@@ -97,7 +97,7 @@ InfoSumCentroidsWeighted.prototype.sumSelectedCentroids = function(di) {
     var markerSize;
     var transaction;
 
-//debugger;
+////debugger;
     // Retrieve document selection, fail on none:
     ids = doc.querySelectedEntities();
     idn = ids.length;
@@ -231,7 +231,7 @@ InfoSumCentroidsWeighted.prototype.sumSelectedCentroids = function(di) {
         count++;
     } // Loop selected
 
-//debugger;
+////debugger;
     // If any, fail on returned error:
     if (!isNull(anyError)) {
         EAction.handleUserWarning(anyError + " " + qsTr("No result."));
@@ -261,7 +261,7 @@ InfoSumCentroidsWeighted.prototype.sumSelectedCentroids = function(di) {
         // Avoid division by zero, abort critical:
         if (centroidM === 0.0) {
             EAction.handleUserWarning(qsTr("Results in a division by zero."));
-            debugger;    // ### Catch this In the act !!! ###
+            ////debugger;    // ### Catch this In the act !!! ###
             return;    // Failed, divZero
         }
 
@@ -272,7 +272,7 @@ InfoSumCentroidsWeighted.prototype.sumSelectedCentroids = function(di) {
     // Avoid NaN values, abort critical:
     if (!isNumber(centroidM) || !isNumber(centroidX) || !isNumber(centroidY)) {
         EAction.handleUserWarning(qsTr("Results in a NaN value."));
-        debugger;    // ### Catch this In the act !!! ###
+        ////debugger;    // ### Catch this In the act !!! ###
         return;    // Failed, NaN
     }
 
@@ -281,7 +281,7 @@ InfoSumCentroidsWeighted.prototype.sumSelectedCentroids = function(di) {
     // Set tool title used for undo/redo information:
     op.setText(qsTr("Combined 2D Centroid"));
 
-//debugger;
+////debugger;
     // Create a centroid data set:
     dataC = [centroidX, centroidY, new RVector(centroidX, centroidY), centroidM];
 

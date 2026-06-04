@@ -150,7 +150,7 @@ InfoAreaCentroid.prototype.selectionAreaCentroid = function(di) {
     // Retrieve the single selected entity:
     entity = doc.queryEntity(ids[0]);
 
-//debugger;
+////debugger;
     // Retrieve supported type:
     type = this.getSupportedAreaCentroidType(entity);    // REntity based (Excludes RSolids and so)
     // Returns supported entity type or -1
@@ -214,7 +214,7 @@ InfoAreaCentroid.prototype.selectionAreaCentroid = function(di) {
         return undefined;    // Failed, resNull
     }
 
-//debugger;
+////debugger;
     // Initiate an operation:
     op = new RAddObjectOperation();
     // Set tool title used for undo/redo information:
@@ -314,7 +314,7 @@ InfoAreaCentroid.prototype.getHatchedArea = function(entity) {
     // Fail without a hatch entity:
     if (!isHatchEntity(entity)) return undefined;    // Failed REntity
 
-//debugger;
+////debugger;
     // Pre-orient hatch boundaries for differential sign:
     boundaries = this.getOrientedHatchBoundaries(entity);
     // Returns at least one pre-oriented boundary or 'undefined'
@@ -334,7 +334,7 @@ InfoAreaCentroid.prototype.getHatchedArea = function(entity) {
             boundsA.push(boundA);
         }
         else {    // Should not occur >
-            debugger;    // ### Catch this In the act !!! ###
+            ////debugger;    // ### Catch this In the act !!! ###
         }
     } // Loop boundaries
 
@@ -421,7 +421,7 @@ InfoAreaCentroid.prototype.getSplineArea = function(spline) {
         return 0.0;
     }
 
-//debugger;
+////debugger;
     // Translate clone to encircle the origin:
     box = spline.getBoundingBox();
     boxCenter = box.getCenter();
@@ -479,7 +479,7 @@ InfoAreaCentroid.prototype.getPolylineArea = function(polyline) {
         return undefined;    // Failed, hasWidths
     }
 
-//debugger;
+////debugger;
     // Explicit logical closed:
     polyline.autoClose(RS.PointTolerance);
     if (!polyline.isClosed()) polyline.setClosed(true);
@@ -507,7 +507,7 @@ InfoAreaCentroid.prototype.getPolylineArea = function(polyline) {
                     bulgesA.push(bulgeA);
                 }
                 else {    // Should not occur >
-                    debugger;    // ### Catch this In the act !!! ###
+                    ////debugger;    // ### Catch this In the act !!! ###
                 }
             }
         } // Loop segments
@@ -569,7 +569,7 @@ InfoAreaCentroid.prototype.getPolygonArea = function(polygon) {
         return undefined;    // Failed, hasWidths
     }
 
-//debugger;
+////debugger;
     // Explicit logical closed:
     polygon.autoClose(RS.PointTolerance);
     if (!polygon.isClosed()) polygon.setClosed(true);
@@ -617,7 +617,7 @@ InfoAreaCentroid.prototype.getArcArea = function(arc) {
     // Fail without an arc shape:
     if (!isArcShape(arc)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     // Diversify return area on the arc mode:
     if (!isNull(this.sectorMode) && this.sectorMode === true) {
         return this.getArcSectorArea(arc);
@@ -644,7 +644,7 @@ InfoAreaCentroid.prototype.getArcSegmentArea = function(arc) {
     // Fail without an arc shape:
     if (!isArcShape(arc)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     radius = arc.getRadius();
     sweep = arc.getSweep();
 
@@ -678,7 +678,7 @@ InfoAreaCentroid.prototype.getArcSectorArea = function(arc) {
     // Fail without an arc shape:
     if (!isArcShape(arc)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     radius = arc.getRadius();
     sweep = arc.getSweep();
 
@@ -711,7 +711,7 @@ InfoAreaCentroid.prototype.getEllipseArea = function(ellipse) {
     // Fail without an ellipse shape:
     if (!isEllipseShape(ellipse)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     // Diversify return area on the closed nature:
     if (ellipse.isFullEllipse()) {
         return this.getFullEllipseArea(ellipse);
@@ -744,7 +744,7 @@ InfoAreaCentroid.prototype.getFullEllipseArea = function(ellipse) {
     // Fail without a full ellipse shape:
     if (!isFullEllipseShape(ellipse)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     major = ellipse.getMajorRadius();
     minor = ellipse.getMinorRadius();
     area = major * minor * Math.PI;    // Unsigned area
@@ -772,7 +772,7 @@ InfoAreaCentroid.prototype.getEllipseArcSegmentArea = function(ellipse) {
     // Fail without an ellipse arc shape:
     if (!isEllipseArcShape(ellipse)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     major = ellipse.getMajorRadius();
     minor = ellipse.getMinorRadius();
     sweep = ellipse.getSweep();
@@ -808,7 +808,7 @@ InfoAreaCentroid.prototype.getEllipseArcSectorArea = function(ellipse) {
     // Fail without an ellipse arc shape:
     if (!isEllipseArcShape(ellipse)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     major = ellipse.getMajorRadius();
     minor = ellipse.getMinorRadius();
     sweep = ellipse.getSweep();
@@ -854,7 +854,7 @@ InfoAreaCentroid.prototype.getHatchedAreaCentroid = function(entity) {
     // Fail without a hatch entity:
     if (!isHatchEntity(entity)) return undefined;    // Failed REntity
 
-//debugger;
+////debugger;
     // Pre-orient hatch boundaries for differential sign:
     boundaries = this.getOrientedHatchBoundaries(entity);
     // Returns at least one pre-oriented boundary or 'undefined'
@@ -876,7 +876,7 @@ InfoAreaCentroid.prototype.getHatchedAreaCentroid = function(entity) {
             boundsA.push(polyC[3]);
         }
         else {    // Should not occur >
-            debugger;    // ### Catch this In the act !!! ###
+            ////debugger;    // ### Catch this In the act !!! ###
         }
     } // Loop boundaries
 
@@ -977,7 +977,7 @@ InfoAreaCentroid.prototype.getSplineAreaCentroid = function(spline) {
         return [start.x, start.y, start, 0.0];
     }
 
-//debugger;
+////debugger;
     // Translate clone to encircle the origin:
     box = spline.getBoundingBox();
     boxCenter = box.getCenter();
@@ -1057,7 +1057,7 @@ InfoAreaCentroid.prototype.getPolylineAreaCentroid = function(polyline) {
         return undefined;    // Failed, hasWidths
     }
 
-//debugger;
+////debugger;
     // Explicit logical closed:
     polyline.autoClose(RS.PointTolerance);
     if (!polyline.isClosed()) polyline.setClosed(true);
@@ -1086,7 +1086,7 @@ InfoAreaCentroid.prototype.getPolylineAreaCentroid = function(polyline) {
                     bulgesA.push(bulgeC[3]);
                 }
                 else {    // Should not occur >
-                    debugger;    // ### Catch this In the act !!! ###
+                    ////debugger;    // ### Catch this In the act !!! ###
                 }
             }
         } // Loop segments    General advice: 'Sum smaller first'
@@ -1165,7 +1165,7 @@ InfoAreaCentroid.prototype.getPolygonAreaCentroid = function(polygon) {
         return undefined;    // Failed, hasWidths
     }
 
-//debugger;
+////debugger;
     // Explicit logical closed:
     polygon.autoClose(RS.PointTolerance);
     if (!polygon.isClosed()) polygon.setClosed(true);
@@ -1245,7 +1245,7 @@ InfoAreaCentroid.prototype.getArcAreaCentroid = function(arc) {
     // Fail without an arc shape:
     if (!isArcShape(arc)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     // Diversify return area on the arc mode:
     if (!isNull(this.sectorMode) && this.sectorMode) {
         return this.getArcSectorAreaCentroid(arc);
@@ -1273,7 +1273,7 @@ InfoAreaCentroid.prototype.getCircleAreaCentroid = function(circle) {
     // Fail without a circle shape:
     if (!isCircleShape(circle)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     centroid = circle.getCenter();
     radius = circle.getRadius();
     area = radius*radius * Math.PI;
@@ -1325,7 +1325,7 @@ InfoAreaCentroid.prototype.getArcSegmentAreaCentroid = function(arc) {
         return [centerPoint.x, centerPoint.y, centerPoint, 0.0];
     }
 
-//debugger;
+////debugger;
     // Define factor & signed area:
     factor = sweep - Math.sin(sweep);
     area = radius*radius * factor / 2;
@@ -1393,7 +1393,7 @@ InfoAreaCentroid.prototype.getArcSectorAreaCentroid = function(arc) {
         return [centerPoint.x, centerPoint.y, centerPoint, 0.0];
     }
 
-//debugger;
+////debugger;
     // Define signed area:
     area = radius*radius * halfSweep;
 
@@ -1436,7 +1436,7 @@ InfoAreaCentroid.prototype.getEllipseAreaCentroid = function(ellipse) {
     // Fail without an ellipse shape:
     if (!isEllipseShape(ellipse)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     // Diversify return centroid data on the closed nature:
     if (ellipse.isFullEllipse()) {
         return this.getFullEllipseAreaCentroid(ellipse);
@@ -1471,7 +1471,7 @@ InfoAreaCentroid.prototype.getFullEllipseAreaCentroid = function(ellipse) {
     // Fail without a full ellipse shape:
     if (!isFullEllipseShape(ellipse)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     centroid = ellipse.getCenter();
     major = ellipse.getMajorRadius();
     minor = ellipse.getMinorRadius();
@@ -1525,7 +1525,7 @@ InfoAreaCentroid.prototype.getEllipseArcSegmentAreaCentroid = function(ellipse) 
         return [centerPoint.x, centerPoint.y, centerPoint, area];
     }
 
-//debugger;
+////debugger;
     // Retrieve ellipse arc properties:
     startParam = ellipse.getStartParam();
     endParam = ellipse.getEndParam();
@@ -1602,7 +1602,7 @@ InfoAreaCentroid.prototype.getEllipseArcSectorAreaCentroid = function(ellipse) {
         return [centerPoint.x, centerPoint.y, centerPoint, area];
     }
 
-//debugger;
+////debugger;
     // Retrieve ellipse arc properties:
     startParam = ellipse.getStartParam();
     endParam = ellipse.getEndParam();
@@ -1648,7 +1648,7 @@ InfoAreaCentroid.prototype.getEllipseArcSectorAreaCentroid = function(ellipse) {
 InfoAreaCentroid.prototype.getSupportedAreaCentroidType = function(entity) {
     var ret = -1;    // Default, not supported
 
-//debugger;
+////debugger;
     // Diversify on entity type:
     if (isArcEntity(entity)) {
         ret = 1;    // As arc segment or sector, autoClosed with a line
@@ -1697,7 +1697,7 @@ InfoAreaCentroid.prototype.getOrientedHatchBoundaries = function(hatch) {
     if (!isHatchEntity(hatch)) return undefined;    // Failed REntity
     hatchData = hatch.getData();
 
-//debugger;
+////debugger;
     // Retrieve boundary loops:
     // boundaries = hatchData.getBoundaryAsPolylines(0);    // Line segment length
     // # Issue Solved # .getBoundaryAsPolylines(val) interpolates curved shapes with line segments
@@ -1712,7 +1712,7 @@ InfoAreaCentroid.prototype.getOrientedHatchBoundaries = function(hatch) {
     // # Informational # Hatch boundaries should/will not intersect, self-intersect, can touch, ...
     // # Informational # Common is the use of counting crossings of a ray from a point inside the closed contour.
 
-//debugger;
+////debugger;
     // Process all hatch boundaries for their nested nature:
     for (i=0; i<iMax; i++) {    // A) Cycle all boundaries
         boundary = boundaries[i];
@@ -1790,7 +1790,7 @@ InfoAreaCentroid.prototype.getHatchPolyLoops = function(hatchData) {
     var loop;
     var loops = [];
 
-//debugger;
+////debugger;
     iMax = hatchData.getLoopCount();
     for (i=0; i<iMax; i++) {    // Cycle all boundary loops
         shapes = hatchData.getLoopBoundary(i);
@@ -1848,7 +1848,7 @@ InfoAreaCentroid.prototype.getHatchPolyLoops = function(hatchData) {
             else {
                 // # ToDo # Possible incomplete, warn immediately
                 EAction.handleUserWarning(qsTr("Unhandled shape from hatch loop."));
-                debugger;    // ### Catch this In the act !!! ###
+                ////debugger;    // ### Catch this In the act !!! ###
             }
         } // Loop boundary loop shapes
 
@@ -1882,7 +1882,7 @@ InfoAreaCentroid.prototype.isSelfIntersectingPoly = function(shape) {
     //    Not intended for all self-intersections
     // # Solutions # Beta version 0.32 requires Framework 3.27, splines as approximated polylines
 
-//debugger;
+////debugger;
     // Get self-intersection points, diversify on arc segments:
     if (shape.hasArcSegments()) {   // With line/arc segments >
         // # Issue Fixed # No good test on self-intersecting bulging polylines

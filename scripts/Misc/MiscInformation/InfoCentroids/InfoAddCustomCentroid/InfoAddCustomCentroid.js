@@ -180,7 +180,7 @@ InfoAddCustomCentroid.prototype.showDialog = function() {
     // -> Continue with the dialog accepted
 
 
-//debugger;
+////debugger;
     // Retrieve and store user input:
     this.positionX = widgets["PositionX"].getValue();    // RMathLineEdit
     this.positionY = widgets["PositionY"].getValue();    // RMathLineEdit

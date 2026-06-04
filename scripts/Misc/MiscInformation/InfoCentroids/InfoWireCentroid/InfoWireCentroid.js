@@ -133,7 +133,7 @@ InfoWireCentroid.prototype.selectionsWireCentroid = function(di) {
     this.errMsg = undefined;
     msg = qsTr("Length:");
 
-//debugger;
+////debugger;
     // Process all selected entities:
     for (i=0; i<idn; i++) {    // Cycle selected entities
         // Retrieve the selected entity:
@@ -149,7 +149,7 @@ InfoWireCentroid.prototype.selectionsWireCentroid = function(di) {
             entityShape.to2D();
         }
 
-//debugger;
+////debugger;
         // Diversify on type:
         switch (type) {
             case 1:    // isArcEntity
@@ -215,7 +215,7 @@ InfoWireCentroid.prototype.selectionsWireCentroid = function(di) {
     // Avoid division by a zero length, abort critical:
     if (length === 0.0) {
         EAction.handleUserWarning(qsTr("Results in a division by zero."));
-        debugger;    // ### Catch this In the act !!! ###
+        ////debugger;    // ### Catch this In the act !!! ###
         return undefined;    // Failed, divZero
     }
 
@@ -223,7 +223,7 @@ InfoWireCentroid.prototype.selectionsWireCentroid = function(di) {
     centroid = new RVector(x / length, y / length);
     dataC = [centroid.x, centroid.y, centroid, length];
 
-//debugger;
+////debugger;
     // Initiate an operation:
     op = new RAddObjectOperation();
     // Set tool title used for undo/redo information:
@@ -341,7 +341,7 @@ InfoWireCentroid.prototype.getSplineWireCentroid = function(spline) {
         return [start.x, start.y, start, 0.0];
     }
 
-//debugger;
+////debugger;
     // Translate clone to encircle the origin:
     box = spline.getBoundingBox();
     boxCenter = box.getCenter();
@@ -409,7 +409,7 @@ InfoWireCentroid.prototype.getPolylineWireCentroid = function(polyline) {
         return undefined;    // Failed, hasWidths
     }
 
-//debugger;
+////debugger;
     // Translate clone to encircle the origin:
     box = polyline.getBoundingBox();
     boxCenter = box.getCenter();
@@ -434,7 +434,7 @@ InfoWireCentroid.prototype.getPolylineWireCentroid = function(polyline) {
         }
         else {    // Should not occur >
             shapeC = undefined;
-            debugger;    // ### Catch this In the act !!! ###
+            ////debugger;    // ### Catch this In the act !!! ###
         }
 
         // Add to lists, if any:
@@ -444,7 +444,7 @@ InfoWireCentroid.prototype.getPolylineWireCentroid = function(polyline) {
             shapesL.push(shapeC[3]);
         }
         else {    // Should not occur >
-            debugger;    // ### Catch this In the act !!! ###
+            ////debugger;    // ### Catch this In the act !!! ###
         }
     } // Loop segments
 
@@ -453,7 +453,7 @@ InfoWireCentroid.prototype.getPolylineWireCentroid = function(polyline) {
     y = this.getRunningSumKBK(shapesY);
     length = this.getRunningSumKBK(shapesL);
 
-if (!RMath.fuzzyCompare(length, orgLength)) debugger; // ### Catch this In the act !!! ###
+if (!RMath.fuzzyCompare(length, orgLength)) //debugger; // ### Catch this In the act !!! ###
 
     // Avoid NaN values:
     if (!isNumber(x) || !isNumber(y) || !isNumber(length)) {
@@ -514,7 +514,7 @@ InfoWireCentroid.prototype.getPolygonWireCentroid = function(polygon) {
         return undefined;    // Failed, hasWidths
     }
 
-//debugger;
+////debugger;
     // Translate clone to encircle the origin:
     box = polygon.getBoundingBox();
     boxCenter = box.getCenter();
@@ -539,7 +539,7 @@ InfoWireCentroid.prototype.getPolygonWireCentroid = function(polygon) {
                 linesL.push(lineC[3]);
             }
             else {    // Should not occur >
-                debugger;    // ### Catch this In the act !!! ###
+                ////debugger;    // ### Catch this In the act !!! ###
             }
         }
         else if (isArcShape(shape)) {
@@ -553,11 +553,11 @@ InfoWireCentroid.prototype.getPolygonWireCentroid = function(polygon) {
                 linesL.push(length);
             }
             else {    // Should not occur >
-                debugger;    // ### Catch this In the act !!! ###
+                ////debugger;    // ### Catch this In the act !!! ###
             }
         }
         else {    // Should not occur >
-            debugger;    // ### Catch this In the act !!! ###
+            ////debugger;    // ### Catch this In the act !!! ###
         }
     } // Loop segments
 
@@ -566,7 +566,7 @@ InfoWireCentroid.prototype.getPolygonWireCentroid = function(polygon) {
     y = this.getRunningSumKBK(linesY);
     length = this.getRunningSumKBK(linesL);
 
-if (!RMath.fuzzyCompare(length, orgLength)) debugger;    // ### Catch this In the act !!! ###
+if (!RMath.fuzzyCompare(length, orgLength)) //debugger;    // ### Catch this In the act !!! ###
 
     // Avoid NaN values:
     if (!isNumber(x) || !isNumber(y) || !isNumber(length)) {
@@ -605,7 +605,7 @@ InfoWireCentroid.prototype.getLineWireCentroid = function(line) {
     // Fail without a line shape:
     if (!isLineShape(line)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     length = line.getLength();
     midPoint = line.getMiddlePoint();
 
@@ -631,7 +631,7 @@ InfoWireCentroid.prototype.getCircleWireCentroid = function(circle) {
     // Fail without a circle shape:
     if (!isCircleShape(circle)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     centroid = circle.getCenter();
     length = circle.getLength();
 
@@ -682,7 +682,7 @@ InfoWireCentroid.prototype.getArcWireCentroid = function(arc) {
         return [centerPoint.x, centerPoint.y, centerPoint, 0.0];
     }
 
-//debugger;
+////debugger;
     // Define centroid magnitude:
     magnitude = radius * Math.sin(halfSweep) / halfSweep;
 
@@ -720,7 +720,7 @@ InfoWireCentroid.prototype.getEllipseWireCentroid = function(ellipse) {
     // Fail without an ellipse shape:
     if (!isEllipseShape(ellipse)) return undefined;    // Failed RShape
 
-//debugger;
+////debugger;
     // Diversify return centroid data on the closed nature:
     if (ellipse.isFullEllipse()) {
         return this.getFullEllipseWireCentroid(ellipse);
@@ -758,7 +758,7 @@ InfoWireCentroid.prototype.getFullEllipseWireCentroid = function(ellipse) {
         return [centroid.x, centroid.y, centroid, 0.0];
     }
 
-//debugger;
+////debugger;
     major = ellipse.getMajorRadius();
     minor = ellipse.getMinorRadius();
     ratio = ellipse.getRatio();
@@ -805,7 +805,7 @@ var circumRamanCP = circumRaman_C * 1.0000145;
 // var circumISC__20 = this.getFullEllipseCircumISC(major, minor, 20);
 // var circumISGK_20 = this.getFullEllipseCircumISGK(major, minor, 20);
 // --------------------------------------------
-//debugger;
+////debugger;
 
 
     // Diversify on ratio:
@@ -822,9 +822,9 @@ var circumRamanCP = circumRaman_C * 1.0000145;
 
     // ### Catch these In the act !!! ###
     // Simpson length fails 14.5ppm:
-    if (circum_QCAD_S < circumRamanCM || circum_QCAD_S > circumRamanCP) debugger;
+    if (circum_QCAD_S < circumRamanCM || circum_QCAD_S > circumRamanCP) //debugger;
     // Both series expansion fail 14.5ppm:
-    if (length < circumRamanCM || length > circumRamanCP) debugger;
+    if (length < circumRamanCM || length > circumRamanCP) //debugger;
     // ### Catch these In the act !!! ###
 
     // Return the full ellipse centroid data:
@@ -880,7 +880,7 @@ InfoWireCentroid.prototype.getEllipseArcWireCentroid = function(ellipse) {
         return this.getFullEllipseWireCentroid(ellipse);
     }
 
-//debugger;
+////debugger;
     // Translate clone to encircle the origin:
     clone = ellipse.clone();
     clone.move(centerPoint.getNegated());
@@ -937,7 +937,7 @@ InfoWireCentroid.prototype.getFullEllipseCircumISC = function (a, b, terms) {
     // Fail without numbers:
     if (!isNumber(a) || !isNumber(b) || !isNumber(terms)) return Number.NaN;
 
-//debugger;
+////debugger;
     // Fail on radii not greater than zero:
     if (a < 0 || b < 0) return Number.NaN;
 
@@ -1039,7 +1039,7 @@ InfoWireCentroid.prototype.getFullEllipseCircumISGK = function (a, b, terms) {
     // Fail without numbers:
     if (!isNumber(a) || !isNumber(b) || !isNumber(terms)) return Number.NaN;
 
-//debugger;
+////debugger;
     // Fail on radii not equal or greater than zero:
     if (a < 0 || b < 0) return Number.NaN;
 
@@ -1088,7 +1088,7 @@ InfoWireCentroid.prototype.getFullEllipseCircumISGK = function (a, b, terms) {
 InfoWireCentroid.prototype.getSupportedWireCentroidType = function(entity) {
     var ret = -1;    // Default, not supported
 
-//debugger;
+////debugger;
     // Diversify on entity type:
     if (isArcEntity(entity)) {
         ret = 1;    // As arc segment or sector

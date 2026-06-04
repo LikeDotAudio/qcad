@@ -328,7 +328,7 @@ PageSettings.postInitPreferences = function(pageWidget, calledByPrefDialog, docu
         paperName = Print.getPaperSizeName(document);
     }
     else {
-        //debugger;
+        ////debugger;
         //paperName = RSettings.getStringValue("PageSettings/PaperSizeName", "ISO A4");
         paperName = Print.getDefaultPaperSizeName(document);
     }

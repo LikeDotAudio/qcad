@@ -335,7 +335,7 @@ Projection.prototype.addTransformedShapes = function(entity, shapes, op, preview
             s = this.projectShape(getPtr(shapes[i]), preview);
             for (n=0; n<s.length; n++) {
                 if (isNull(s[n])) {
-                    debugger;
+                    ////debugger;
                 }
 
                 if (isPolylineShape(s[n])) {
@@ -375,7 +375,7 @@ Projection.prototype.addTransformedShapes = function(entity, shapes, op, preview
         s = this.projectShape(getPtr(shapes[i]), preview);
         for (n=0; n<s.length; n++) {
             if (isNull(s[n])) {
-                debugger;
+                ////debugger;
             }
 
             var e = shapeToEntity(entity.getDocument(), s[n]);
