@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import os
 import sys
-import subprocess
 from pathlib import Path
 
 def launch():
@@ -57,13 +56,36 @@ def launch():
         print(f"LD_PRELOAD: {env['LD_PRELOAD']}")
     print(f"----------------------")
 
-    try:
-        # Run QCAD
-        subprocess.run([str(bin_path)] + sys.argv[1:], env=env)
-    except KeyboardInterrupt:
-        print("\nQCAD closed by user.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    # Fork QCAD into its own process so the launcher can exit immediately.
+    # Double-fork pattern: detaches QCAD completely from this process tree.
+    pid = os.fork()
+    if pid > 0:
+        # Parent — QCAD is launched, we're done.
+        print(f"QCAD started (pid {pid}). Launcher exiting.")
+        sys.exit(0)
+
+    # ── Child process ─────────────────────────────────────────────────
+    # Become a new session leader so QCAD is fully independent.
+    os.setsid()
+
+    # Second fork — the grandchild runs QCAD, the child exits.
+    # This prevents QCAD from ever reacquiring a controlling terminal.
+    pid2 = os.fork()
+    if pid2 > 0:
+        os._exit(0)
+
+    # ── Grandchild process (the actual QCAD) ──────────────────────────
+    # Redirect stdout/stderr to /dev/null so orphaned output doesn't
+    # pile up if launched from a .desktop file (no terminal).
+    devnull = os.open(os.devnull, os.O_RDWR)
+    os.dup2(devnull, 0)  # stdin
+    os.dup2(devnull, 1)  # stdout
+    os.dup2(devnull, 2)  # stderr
+    os.close(devnull)
+
+    # Replace this process with qcad-bin — no leftover Python process.
+    os.execvpe(str(bin_path), [str(bin_path)] + sys.argv[1:], env)
+
 
 if __name__ == "__main__":
     launch()
