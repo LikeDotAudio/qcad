@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+import os
+import sys
+import subprocess
+from pathlib import Path
+
+def launch():
+    # Get the absolute path of the project root
+    root_dir = Path(__file__).parent.absolute()
+    
+    # Check for build types
+    qt6_bin = root_dir / "debug" / "qcad-bin"
+    qt5_bin = root_dir / "release" / "qcad-bin"
+    
+    bin_path = None
+    qt_version = "Unknown"
+    lib_path = ""
+
+    if qt6_bin.exists():
+        bin_path = qt6_bin
+        qt_version = "6 (CMake/Ninja)"
+        # For Qt 6 build, libraries are usually in debug/ or release/ AND plugins/
+        lib_path = str(root_dir / "debug") + ":" + str(root_dir / "plugins")
+    elif qt5_bin.exists():
+        bin_path = qt5_bin
+        qt_version = "5 (qmake/make)"
+        lib_path = str(root_dir / "release") + ":" + str(root_dir / "plugins")
+    else:
+        print("Error: No QCAD binary found. Please ensure the project is built.")
+        print(f"Checked: {qt6_bin}")
+        print(f"Checked: {qt5_bin}")
+        sys.exit(1)
+
+    # Set up environment variables
+    env = os.environ.copy()
+    
+    # Force X11 platform for better compatibility on Wayland systems
+    env["QT_QPA_PLATFORM"] = "xcb"
+    
+    # Construct LD_LIBRARY_PATH
+    ld_paths = lib_path.split(":")
+    current_ld = env.get("LD_LIBRARY_PATH", "")
+    if current_ld:
+        ld_paths.append(current_ld)
+    env["LD_LIBRARY_PATH"] = ":".join(ld_paths)
+    
+    # Handle the libpthread symbol issue often seen in certain Linux environments (e.g., Snap/Ubuntu)
+    preload = "/lib/x86_64-linux-gnu/libpthread.so.0"
+    if Path(preload).exists():
+        env["LD_PRELOAD"] = preload
+
+    print(f"--- QCAD Launcher ---")
+    print(f"Using Qt Build: {qt_version}")
+    print(f"Binary: {bin_path}")
+    print(f"LD_LIBRARY_PATH: {env['LD_LIBRARY_PATH']}")
+    if "LD_PRELOAD" in env:
+        print(f"LD_PRELOAD: {env['LD_PRELOAD']}")
+    print(f"----------------------")
+
+    try:
+        # Run QCAD
+        subprocess.run([str(bin_path)] + sys.argv[1:], env=env)
+    except KeyboardInterrupt:
+        print("\nQCAD closed by user.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    launch()
