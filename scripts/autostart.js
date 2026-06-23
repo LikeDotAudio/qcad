@@ -595,7 +595,7 @@ function main() {
     }
 
     appWin.objectName = "MainWindow";
-    appWin.windowTitle = qApp.applicationName;
+    appWin.windowTitle = "QCAD - APK FORK";
 
     // save locale
     appWin.setProperty("Locale", RSettings.getLocale());

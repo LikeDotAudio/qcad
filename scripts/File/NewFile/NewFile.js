@@ -446,7 +446,7 @@ NewFile.updateTitle = function(mdiChild) {
     appWin.setWindowTitle(
         stripDirtyFlag(titleAppWin) +
         (document.isModified() ? " *" : "") +
-        " - " + qApp.applicationName
+        \" - \" + "QCAD - APK FORK"
     );
 
     var mdiArea = EAction.getMdiArea();

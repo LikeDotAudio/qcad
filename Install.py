@@ -39,7 +39,7 @@ CLI_LINK = BIN_DIR / "qcad"
 
 DESKTOP_ENTRY = textwrap.dedent("""\
     [Desktop Entry]
-    Name=QCAD
+    Name=QCAD - APK FORK
     StartupWMClass=QCAD
     GenericName=CAD Software
     Comment=A 2D CAD System
